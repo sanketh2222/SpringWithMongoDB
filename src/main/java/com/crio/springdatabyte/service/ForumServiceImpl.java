@@ -6,6 +6,7 @@ import com.crio.springdatabyte.model.Stats;
 import com.crio.springdatabyte.model.User;
 import com.crio.springdatabyte.repository.PostRepository;
 import com.crio.springdatabyte.repository.UserRepository;
+import com.crio.springdatabyte.repositoryservice.ForumRepositoryServiceImpl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,24 +15,18 @@ import org.springframework.stereotype.Service;
 public class ForumServiceImpl implements ForumService {
 
   @Autowired
-  UserRepository userRepository;
-
-  @Autowired
-  PostRepository postRepository;
+  ForumRepositoryServiceImpl forumRepositoryService;
 
   @Override
   public Stats getForumStats() {
-    List<User> users = userRepository.findAll();
-    List<Post> posts = postRepository.findAll();
-
-    return new Stats(users.size(), posts.size());
+    return forumRepositoryService.getForumStats();
   }
 
   public List<Post> getPostsByUser(String username) {
     return null;
   }
 
-  public Post getMostPopularPost() {
+  public List<Post> getMostRecentPosts(int maxCount) {
     return null;
   }
 
