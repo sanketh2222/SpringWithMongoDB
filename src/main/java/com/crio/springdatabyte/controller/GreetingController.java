@@ -10,17 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class GreetingController {
 
-  @Autowired
-  ForumService service;
-
   @GetMapping("/greeting")
   public ResponseEntity<String> greeting() {
-    Stats stats = service.getForumStats();
-    String message = "<p>Hello!</p>"
-        + "<div><b>Forum stats</b></div>"
-        + "<div>---------------</div>"
-        + "<div>Number of users: " + stats.getNumUsers() + "</div>";
-
+    String message = "Hello world!";
     return ResponseEntity.ok().body(message);
   }
 
