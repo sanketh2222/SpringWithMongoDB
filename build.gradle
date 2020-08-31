@@ -18,11 +18,12 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 
-	implementation 'org.springframework.data:spring-data-mongodb:3.0.3.RELEASE'
-	implementation 'org.springframework:spring-web:5.2.8.RELEASE'
+	implementation "org.springframework.boot:spring-boot-starter-data-mongodb"
+	implementation "org.springframework.boot:spring-boot-starter-web"
+	//implementation 'org.springframework:spring-web:5.2.8.RELEASE'
 
-	implementation 'org.projectlombok:lombok:1.18.8'
-
+	compileOnly 'org.projectlombok:lombok:1.18.12'
+	annotationProcessor 'org.projectlombok:lombok:1.18.12'
 }
 
 test {

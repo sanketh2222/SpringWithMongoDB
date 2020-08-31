@@ -1,6 +1,5 @@
-package com.crio.springdatabyte.model;
+package com.crio.springdatabyte.entity;
 
-import java.util.List;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -9,7 +8,6 @@ import lombok.NonNull;
 @NoArgsConstructor
 public class Post {
 
-  @NonNull
   public int posterId;
 
   @NonNull
@@ -18,9 +16,6 @@ public class Post {
   @NonNull
   public String content;
 
-  public List<Comment> comments;
-
-  @NonNull
   public long postCreatedTimestamp;
 
 }

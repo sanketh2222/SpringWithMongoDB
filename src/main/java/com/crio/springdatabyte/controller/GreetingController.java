@@ -1,10 +1,9 @@
 package com.crio.springdatabyte.controller;
 
-import com.crio.springdatabyte.dto.Greeting;
-import com.crio.springdatabyte.model.Stats;
+import com.crio.springdatabyte.dto.Stats;
 import com.crio.springdatabyte.service.ForumService;
-import com.crio.springdatabyte.service.ForumServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -15,15 +14,14 @@ public class GreetingController {
   ForumService service;
 
   @GetMapping("/greeting")
-  public Greeting greeting() {
+  public ResponseEntity<String> greeting() {
     Stats stats = service.getForumStats();
-    String message = "Hello!\n"
-        + "Forum stats\n"
-        + "---------------"
-        + "Number of users: " + stats.getNumUsers()
-        + "Number of posts: " + stats.getNumPosts();
+    String message = "<p>Hello!</p>"
+        + "<div><b>Forum stats</b></div>"
+        + "<div>---------------</div>"
+        + "<div>Number of users: " + stats.getNumUsers() + "</div>";
 
-    return new Greeting(message);
+    return ResponseEntity.ok().body(message);
   }
 
 }

@@ -1,6 +1,5 @@
-package com.crio.springdatabyte.model;
+package com.crio.springdatabyte.dto;
 
-import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,13 +10,11 @@ import lombok.NoArgsConstructor;
 public class Stats {
 
   public int numUsers;
-  public int numPosts;
 
   @Override
   public String toString() {
     return "Stats{" +
         "numUsers=" + numUsers +
-        ", numPosts=" + numPosts +
         '}';
   }
 
