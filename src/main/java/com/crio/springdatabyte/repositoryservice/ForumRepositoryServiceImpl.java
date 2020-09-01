@@ -1,8 +1,9 @@
 package com.crio.springdatabyte.repositoryservice;
 
+import com.crio.springdatabyte.dto.Post;
 import com.crio.springdatabyte.dto.Stats;
 import com.crio.springdatabyte.dto.User;
-import com.crio.springdatabyte.entity.Post;
+import com.crio.springdatabyte.entity.PostModel;
 import com.crio.springdatabyte.entity.UserEntity;
 import com.crio.springdatabyte.repository.UserRepository;
 import java.util.ArrayList;
@@ -28,14 +29,15 @@ public class ForumRepositoryServiceImpl implements ForumRepositoryService {
   }
 
   @Override
-  public List<com.crio.springdatabyte.dto.Post> getPostsByUser(String username) {
+  public List<Post> getPostsByUser(String username) {
     List<UserEntity> userEntityList = userRepository.findByUsername(username);
 
-    List<com.crio.springdatabyte.dto.Post> posts = new ArrayList<>();
+    List<Post> posts = new ArrayList<>();
+
     for(UserEntity userEntity : userEntityList) {
-      List<Post> postEntityList = userEntity.getPosts();
-      for(Post postEntity : postEntityList) {
-        posts.add(modelMapper.map(postEntity, com.crio.springdatabyte.dto.Post.class));
+      List<PostModel> postModelEntityList = userEntity.getPosts();
+      for(PostModel postModelEntity : postModelEntityList) {
+        posts.add(modelMapper.map(postModelEntity, Post.class));
       }
     }
 

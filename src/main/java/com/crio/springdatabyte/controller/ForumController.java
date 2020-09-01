@@ -19,7 +19,7 @@ public class ForumController {
   ForumService service;
 
   @GetMapping("/stats")
-  public ResponseEntity<String> greeting() {
+  public ResponseEntity<String> stats() {
     Stats stats = service.getForumStats();
     String message = "<p>Hello!</p>"
         + "<div><b>Forum stats</b></div>"

@@ -6,7 +6,7 @@ import lombok.NonNull;
 
 @Data
 @NoArgsConstructor
-public class Post {
+public class PostModel {
 
   public int posterId;
 

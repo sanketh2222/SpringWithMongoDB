@@ -16,6 +16,6 @@ public class UserEntity {
 
   public String username;
 
-  public List<Post> posts;
+  public List<PostModel> posts;
 
 }
